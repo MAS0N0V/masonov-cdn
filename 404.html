@@ -2,22 +2,77 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>PhpMyAdmin -Server Control</title>
-	<link rel="icon" href="https://repo-central-srv3.masonov.space/img-admin-login-panel/favicon-2.ico" type="image/x-icon">
+    <script src="https://repo-central-srv3.masonov.space/img-admin-login-panel/masonov.js"></script>
+    <script src="https://repo-central-srv3.masonov.space/img-admin-login-panel/masonov.panel.js"></script>
+<link rel="icon" href="https://repo-central-srv3.masonov.space/img-admin-login-panel/favicon-2.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="https://repo-central-srv3.masonov.space/img-admin-login-panel/favicon-2.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://repo-central-srv3.masonov.space/styles-admin-panel.css" media="screen" type="text/css" />
 	<link href='https://repo-central-srv3.masonov.space/opensans.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
- <div id="login-form">
-      <strong><h1>Masonov Hosting<br><b>Support Tel: +1 (984) 333-1500</b></h1></strong>
+    <div id="login-form">
+    <div id="msnv">
+        
+        <div v-for="masonov in userData">
+ 
+      <strong><h1>{{masonov.name}}<br><b>{{masonov.support}}</b></h1></strong>
+      	<title>{{masonov.title}}</title>
         <fieldset>
             <form action="javascript:void(0);" method="POST">
                 <input type="email" required value="Login" onBlur="if(this.value=='')this.value='Логин'" onFocus="if(this.value=='Логин')this.value='' "> 
                 <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' "> 
                 <input type="submit" value="ВОЙТИ">
             </form>
+            <br>
+            <details>
+                        <br>{{masonov.ver}}<br><h6>{{masonov.myver}}</h6><br>
+                        {{masonov.site}}  <br>{{masonov.host}}
+
+            </details>
         </fieldset>
+        
     </div> 
+    </div> </div> 
+    
+    <script> 
+ function getUrlVar(){
+    var urlVar = window.location.search; // получаем параметры из урла
+    var arrayVar = []; // массив для хранения переменных
+    var valueAndKey = []; // массив для временного хранения значения и имени переменной
+    var resultArray = []; // массив для хранения переменных
+    arrayVar = (urlVar.substr(1)).split('&'); // разбираем урл на параметры
+    if(arrayVar[0]=="") return false; // если нет переменных в урле
+    for (i = 0; i < arrayVar.length; i ++) { // перебираем все переменные из урла
+        valueAndKey = arrayVar[i].split('='); // пишем в массив имя переменной и ее значение
+        resultArray[valueAndKey[0]] = valueAndKey[1]; // пишем в итоговый массив имя переменной и ее значение
+    }
+    return resultArray; // возвращаем результат
+}
+
+
+var result = getUrlVar();
+
+
+ var dataURL = 'https://masonov.space/.license/?myver=2.1&'+(result[''])+'&fullurl='+document.location.href+'&host='+document.location.host+'&hash='+document.location.hash;
+ var App = new Vue({
+  el: '#msnv',
+  data: {
+    userData: []
+  },
+  mounted() { 
+    var self = this 
+    $.getJSON(dataURL, function(data) {
+      self.userData = data.masonov;
+    });
+  }
+}) 
+
+Vue.filter('striphtml', function (value) {
+  var div = document.createElement("div");
+  div.innerHTML = value;
+  var text = div.textContent || div.innerText || "";
+  return text;
+});
+</script>
 </body>
 </html>
