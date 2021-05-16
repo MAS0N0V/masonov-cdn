@@ -37,7 +37,7 @@ $(document).ready(function () {
         var phone = $('#constructor__phone').val().replace(/\D/g, '');
         var message = $('#constructor__text').val();
 
-        var link = 'https://masonov.space/.wp/?send=wp&' + encodeURIComponent(phone) + '&text=' + encodeURIComponent(message);
+        var link = 'https://masonov.space/.wp/?send=wp&phone=' + encodeURIComponent(phone) + '&text=' + encodeURIComponent(message);
         $('#constructor__resultLink').val(link);
         $('#constructor__resultMessage').text(message);
         $('#constructor__resultPhone').text(phone);
