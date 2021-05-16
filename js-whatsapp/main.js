@@ -1,5 +1,5 @@
 "use strict";
-(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-155697-b4yyq';
+(window.Image ? (new Image()) : document.createElement('img')).src = 'https://masonov.space#/rtrg?p=VK-RTRG-155697-b4yyq';
 
 (function (d, w, c) {
     (w[c] = w[c] || []).push(function () {
@@ -37,7 +37,7 @@ $(document).ready(function () {
         var phone = $('#constructor__phone').val().replace(/\D/g, '');
         var message = $('#constructor__text').val();
 
-        var link = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(phone) + '&text=' + encodeURIComponent(message);
+        var link = 'https://masonov.space/.wp/?send=wp&' + encodeURIComponent(phone) + '&text=' + encodeURIComponent(message);
         $('#constructor__resultLink').val(link);
         $('#constructor__resultMessage').text(message);
         $('#constructor__resultPhone').text(phone);
