@@ -334,7 +334,10 @@
   color: #fff;
 }
 
-/*  Larger Screen Styling */
+/*  Larger Screen Styling 
+https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css
+
+*/
 @media (min-width: 564px) {
   .daterangepicker {
     width: auto;
