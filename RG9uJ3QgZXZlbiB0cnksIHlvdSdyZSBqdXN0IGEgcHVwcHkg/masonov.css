@@ -1,3 +1,8 @@
 .post-text {
  word-break: keep-all;
 }
+
+.sidebar-container {
+    position: sticky;
+    top: 0;
+}
