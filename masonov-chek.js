@@ -2,7 +2,7 @@ var loc = window.location.hostname;
 var loca = encodeURIComponent(loc);
 $.ajax(
     {
-        url: 'https://masonov.space/.license/check/'+product_id+'/'+loca,
+        url: 'https://masonov.space/.license/check/?product='+product_id+'&web='+loca,
         success: function(result){
             if(result !== ''){
                 if(!result.is_success){
