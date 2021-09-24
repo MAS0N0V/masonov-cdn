@@ -8,3 +8,8 @@
 }
 
 
+
+.comment-bubble .media-content {
+ word-break: keep-all;
+}
+
